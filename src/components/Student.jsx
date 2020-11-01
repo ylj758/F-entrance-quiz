@@ -53,12 +53,12 @@ class Student extends Component {
 render()
 {
   return (
-    // TODO GTB-4: - 加强语义化标签的使用 
+    // TODO GTB-3: - 加强语义化标签的使用 
     <div className="order">
       <div>
         <h2>学员列表</h2>
         {
-          // TODO GTB-4: - 数组直接map即可，不用Object.values
+          // TODO GTB-3: - 数组直接map即可，不用Object.values
           Object.values(this.state.students).map((student, index) => {
             // TODO GTB-4: - 不推荐使用index作为key，可以使用id等
             return <tr key={index}>

@@ -21,6 +21,8 @@
 
 **Details:**
 
+- \- 加强语义化标签的使用
+- \- 数组直接 map 即可，不用 Object.values
 - \- 这里下面一般直接写{this.handleConfirmAddStudent}，定义 handleConfirmAddStuden 成箭头函数即可 \*/}
 
 ### 工程实践：
@@ -38,7 +40,5 @@
 - \- 同理，不用双向绑定，这个方法也是冗余的
 - \- 同理，不用双向绑定，这个方法也是冗余的，且注意命名，怎么会是 File？
 - \- 注意缩进
-- \- 加强语义化标签的使用
-- \- 数组直接 map 即可，不用 Object.values
 - \- 不推荐使用 index 作为 key，可以使用 id 等
 - \- 不用双向绑定，这里 onChange 可以改成 onKeyUp/onKeyDown
