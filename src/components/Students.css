@@ -1,0 +1,33 @@
+
+ul{
+    list-style: none;
+}
+.stu-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stu-list li{
+    border: 1px lightgray solid;
+    background-color: lightgray;
+    padding: 5px 10px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+}
+
+#add-student{
+    background-color: whitesmoke;
+    padding: 0;
+}
+
+.add-student-btn{
+    border: none;
+    background: none;
+    height: 34px;
+    width: 100px;
+}
+
+.add-student-btn:hover{
+    background: none;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Student from '../components/Student';
+import Students from '../components/Students';
 
 // TODO GTB-1: * 页面没有样式
 // TODO GTB-1: * 只是实现了添加学员和学员列表，且添加形式没有符合需求
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div data-testid="app" className="App">
-        <Student />
+        <Students />
       </div>
     );
   }
