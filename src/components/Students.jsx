@@ -1,23 +1,25 @@
 import React, {Component} from 'react'
-import {Modal, Button} from 'antd';
-// TODO GTB-4: - 这里不用独立引入@babel/polyfill，如有需要请修改 .babelrc文件
-// import '@babel/polyfill';
+import {Modal, Button, Card} from 'antd';
+import StudentGroup from "./StudentGroup";
 import './Students.css';
 import 'antd/dist/antd.css';
 
-// TODO GTB-4: - 这里组件命名是应该单数的Student吗？
 class Students extends Component {
     state = {
         students: [],
         student: {name: ""},
-        visible: false
+        visible: false,
+        groups: []
     };
 
     async componentDidMount() {
-        const result = await fetch("http://localhost:8080/students");
-        const data = await result.json();
+        const stuResult = await fetch("http://localhost:8080/students");
+        const stuData = await stuResult.json();
+        const groResult = await fetch("http://localhost:8080/groups");
+        const groData = await groResult.json();
         this.setState({
-            students: data
+            students: stuData,
+            groups: groData
         });
     }
 
@@ -25,14 +27,14 @@ class Students extends Component {
         this.setState({
             visible: false,
         });
-       await fetch("http://localhost:8080/student", {
+        await fetch("http://localhost:8080/student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify(this.state.student)
+            body: JSON.stringify(this.state.student)
         })
-       await location.reload()
+        await location.reload()
     }
 
 
@@ -55,11 +57,31 @@ class Students extends Component {
         });
     };
 
-// TODO GTB-4: - 注意缩进
+    handleGroupStudents = async () => {
+        await fetch("http://localhost:8080/students/groups")
+        await location.reload()
+    }
+
     render() {
         return (
             // TODO GTB-3: - 加强语义化标签的使用
-            <div className="order">
+            <main className="main">
+                <section className="group-sec">
+                    <header className="group-header">
+                        <h2>分组列表</h2>
+                        <Button id="group-btn" onClick={this.handleGroupStudents}>分组学员</Button>
+                    </header>
+                    <section className="group-body">
+                        {
+                            this.state.groups.map((group) => {
+                                return <section key={group.id}>
+                                    <p>{group.name}</p>
+                                    <StudentGroup students={group.students}/>
+                                </section>
+                            })
+                        }
+                    </section>
+                </section>
                 <section>
                     <h2>学员列表</h2>
                     <ul className="stu-list">
@@ -92,8 +114,7 @@ class Students extends Component {
                         </li>
                     </ul>
                 </section>
-
-            </div>
+            </main>
         );
 
     }

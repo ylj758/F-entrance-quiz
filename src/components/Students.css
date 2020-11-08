@@ -1,13 +1,14 @@
 
-ul{
+ul {
     list-style: none;
 }
-.stu-list{
+
+.stu-list {
     display: flex;
     flex-wrap: wrap;
 }
 
-.stu-list li{
+.stu-list li {
     border: 1px lightgray solid;
     background-color: lightgray;
     padding: 5px 10px;
@@ -16,18 +17,34 @@ ul{
     text-align: center;
 }
 
-#add-student{
+#add-student {
     background-color: whitesmoke;
     padding: 0;
 }
 
-.add-student-btn{
+.add-student-btn {
     border: none;
     background: none;
     height: 34px;
     width: 100px;
 }
 
-.add-student-btn:hover{
+.add-student-btn:hover {
     background: none;
+}
+
+.main {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#group-btn {
+    background-color: red;
+    color: white;
 }
